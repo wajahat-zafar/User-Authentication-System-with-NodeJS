@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    {{>headerLinks}}
+  </head>
+  <body>
+    <section class="wrapper">
+      <div class="form signup">
+        <header>Signup</header>
+        <form action="/register" method="POST">
+          <input type="text" placeholder="Full name" name="fName" required />
+          <input type="text" placeholder="Email address" name="email" required  />
+          <input type="password" placeholder="Password" name="password" required  />
+          <div class="checkbox">
+            <input type="checkbox" id="signupCheck" name="checkbox" required />
+            <label for="signupCheck">I accept all terms & conditions</label>
+          </div>
+          <input type="submit" value="Signup" />
+        </form>
+      </div>
+
+      <div class="form login">
+        <header>Login</header>
+        <form action="/login" method="POST">
+          <input type="text" placeholder="Email address" name="email" required />
+          <input type="password" placeholder="Password" name="password" required />
+          <a href="#">Forgot password?</a>
+          <input type="submit" value="Login" />
+        </form>
+      </div>
+
+      <script>
+        const wrapper = document.querySelector(".wrapper"),
+          signupHeader = document.querySelector(".signup header"),
+          loginHeader = document.querySelector(".login header");
+
+        loginHeader.addEventListener("click", () => {
+          wrapper.classList.add("active");
+        });
+        signupHeader.addEventListener("click", () => {
+          wrapper.classList.remove("active");
+        });
+      </script>
+    </section>
+  </body>
+</html>
